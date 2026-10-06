@@ -1,0 +1,31 @@
+/* Custom CSS that Tailwind utilities can't express neatly */
+
+/* One soft glow behind the page. #2e0d10 and red-900 from the colour brief. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(50rem 32rem at 90% -8%, rgb(254 226 226 / 0.8), transparent 65%);
+}
+.dark body::before {
+  background:
+    radial-gradient(52rem 34rem at 90% -8%, #2e0d10, transparent 70%),
+    radial-gradient(40rem 26rem at -10% 110%, rgb(127 29 29 / 0.25), transparent 70%);
+}
+
+/* Faint circuit-board traces behind the hero (Computer Engineering / IoT) */
+.circuit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='%23ef4444' stroke-width='1'%3E%3Cpath d='M0 30h40l10 10h30M60 0v30l10 10M120 90H90l-10-10H50v40M0 100h20l10-10'/%3E%3Ccircle cx='80' cy='40' r='3'/%3E%3Ccircle cx='50' cy='80' r='3'/%3E%3Ccircle cx='30' cy='90' r='3'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  -webkit-mask-image: linear-gradient(to left, black, transparent 75%);
+  mask-image: linear-gradient(to left, black, transparent 75%);
+}
+.dark .circuit {
+  opacity: 0.2;
+}
